@@ -1,0 +1,196 @@
+(function ($) {
+	$(document).ready(function () {
+		$("input.js-phone").keyup(function(){
+			var val = $(this).val();
+			regVal = /[^\d\+\(\)\-]/g;
+			newval = val.replace(regVal, "");
+			$(this).val(newval);
+		});
+
+		$("input.js-name, input.js-lastname").keyup(function(){
+			var val = $(this).val();
+			regVal = /[^\D\+\(\)\-]/g;
+			newval = val.replace(regVal, "");
+			$(this).val(newval);
+		});
+
+		$('.mailUrl').attr("href", getCookie('mailUrl'));
+
+		// setCookie('fbid', fbid);
+
+		// $(".js-phone").attr('placeholder', '+0(000)00-00-000')
+		// $(".js-phone").mask('+0(000) 000-0000');
+		
+		$(".js-phone").intlTelInput({
+			geoIpLookup: function(callback) {
+				var geo = getURLParameter('geo');
+				if (geo == '') {
+					$.get("//ipinfo.io", function() {}, "jsonp").always(function(resp) {
+						var countryCode = (resp && resp.country) ? resp.country : "";
+						callback(countryCode);
+					});
+				} else {
+					callback(geo);
+				}
+			},
+			initialCountry: "auto",
+			nationalMode: false,
+			utilsScript: "f_js/utils.js",
+			customPlaceholder :  function ( selectedCountryPlaceholder , selectedCountryData ) {
+				return  selectedCountryPlaceholder;
+			},
+		});
+
+		// var clickid = getURLParameter('clickid');
+		// if (clickid == '') {
+		// 	clickid = getCookie('clickid');
+		// }
+
+		// var pid = getURLParameter('pid');
+		// if (pid == '') {
+		// 	pid = getURLParameter('utm_content');
+		// }
+		// if (pid == '') {
+		// 	pid = getCookie('pid');
+		// }
+
+
+		// var ip = getURLParameter('ip');
+		// if (ip == '') {
+		// 	ip = getCookie('ip');
+		// }
+
+		// var geo = getURLParameter('geo');
+		// if (geo == '') {
+		// 	geo = getCookie('geo');
+		// }
+
+		// var device_ua = getURLParameter('device_ua');
+		// if (device_ua == '') {
+		// 	device_ua = getCookie('device_ua');
+		// }
+
+		// var city = getURLParameter('city');
+		// if (city == '') {
+		// 	city = getCookie('city');
+		// }
+
+		// var fbid = getURLParameter('fbid');
+		// if (fbid == '') {
+		// 	fbid = getCookie('fbid');
+		// }
+
+		// if (ip != '') {
+		// 	$('input[name=ip]').attr('value', ip);
+		// } else {
+		// 	checkIp();
+		// }
+
+		// console.log('clickid = ' + clickid);
+		// console.log('pid = ' + pid);
+		// console.log('fbid = ' + fbid);
+		// console.log('ip = ' + ip);
+		// console.log('geo = ' + geo);
+		// console.log('device_ua = ' + device_ua);
+
+		// $('input[name=clickid]').attr('value', clickid);
+		// $('input[name=pid]').attr('value', pid);
+		// $('input[name=geo]').attr('value', geo);
+		// $('input[name=device_ua]').attr('value', device_ua);
+		// $('input[name=city]').attr('value', city);
+
+		//geo = geo ? geo : 'RU';
+		// $(document).on('click', 'button[name=submitBtn]', function(){
+		// 	var formJs = $(this).closest('form');
+		// 	var firstname = formJs.find('input.js-name').val();
+		// 	var lastname = formJs.find('input.js-lastname').val();
+		// 	var email = formJs.find('input.js-email').val();
+		// 	var phone = formJs.find('input.js-phone').val();
+		// 	var re = /^(([^<>()\[\]\.,;:\s@"]+(\.[^<>()\[\]\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
+
+		// 	formJs.find('input').removeClass('error');
+
+		// 	if (firstname == '' || firstname.length < 2) {
+		// 		 	formJs.find('input.js-name').addClass('error');
+		// 		 	formJs.find('input.js-name').val('');
+		// 		formJs.find('input.js-name').attr('placeholder', 'Wpisz nazwę');
+		// 		return false;
+		// 	} else if (lastname == '' || lastname.length < 2) {
+		// 		formJs.find('input.js-lastname').addClass('error');
+		// 		formJs.find('input.js-lastname').val('');
+		// 		formJs.find('input.js-lastname').attr('placeholder', 'Wpisz swoje nazwisko');
+		// 		return false;
+		// 	} else if (email == '' || !re.test(email)) {
+		// 		formJs.find('input.js-email').addClass('error');
+		// 		formJs.find('input.js-email').val('');
+		// 		formJs.find('input.js-email').attr('placeholder', 'Wprowadź emal');
+		// 		return false;
+		// 	} else if (phone == '' || phone.length < 7) {
+		// 		formJs.find('input.js-phone').addClass('error');
+		// 		formJs.find('input.js-phone').val('');
+		// 		formJs.find('input.js-phone').attr('placeholder', 'Wprowadź telefon');
+		// 		return false;
+		// 	} else {
+		// 		var mailUrl = "//" + email.split('@')[1];
+		// 		setCookie('mailUrl', mailUrl);
+		// 		$('.modalWindow.preloader').fadeIn();
+		// 		submitForm(formJs);
+		// 	}
+		// });
+	});
+})(jQuery);
+
+// function submitForm(e) {
+// 	$.ajax({
+// 		type: "POST",
+// 		url: "./client_auth_v3.php",
+// 		data: $(e).serialize()
+// 	}).done(function () {
+// 		window.location.href = "./success.html?fbid=" + getUrlParameter('fbid');
+// 	});
+// 	return false;
+// };
+
+function getURLParameter(name) {
+	return decodeURIComponent(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
+	);
+};
+
+function checkIp() {
+    $.getJSON('https://apileads.3snet.tech/check-ip', function(data) {
+    	console.log(data);
+        if (typeof data.ip != 'undefined') {
+            var ip = data.ip;
+            $('input[name=ip]').attr('value', ip);
+        }
+    });
+};
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};

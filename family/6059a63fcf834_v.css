@@ -1,0 +1,607 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none; }
+
+img {
+  max-width: 100%; }
+
+/* /////////////////////////////////////////// */
+
+@font-face {
+  font-family: 'GilroyMedium';
+  src: url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-Medium.woff2') format('woff2'),
+      url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GilroyExtraBold';
+  src: url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-ExtraBold.woff2') format('woff2'),
+      url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GilroySemi';
+  src: url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-SemiBold.woff2') format('woff2'),
+      url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GilroyRegular';
+  src: url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-Regular.woff2') format('woff2'),
+      url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GilroyBold';
+  src: url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-Bold.woff2') format('woff2'),
+      url('https://9-news-today.com/success/bb/ukbbad/fonts/Gilroy-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* ------------ common ------------ */
+body {
+  background-color: #f0f0f0;
+  font-family: "GilroyRegular", Arial, sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.article {
+  padding: 35px 0;
+}
+
+.article__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  font-family: "Lato", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  text-align: center;
+  font-size: 16px;
+  color: #303030;
+  background-color: #fff;
+}
+/* ------------ /common ------------ */
+
+/* ------------ header ------------ */
+.header {
+  padding: 20px 0;
+  background-color: #fff;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 30px;
+  max-width: 290px;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nav-list__item {
+  width: 33%;
+  margin-bottom: 10px;
+}
+.nav-list__item:nth-last-child(-n+2) {
+  margin-bottom: 0;
+}
+.nav-list__link {
+  display: inline-block;
+  width: 100%;
+  color: #000;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: color 0.2s;
+  text-align: center;
+  text-transform: uppercase;
+}
+.nav-list__link:hover, .nav-list__link:focus, .nav-list__link:active {
+  color: #bb9d0b;
+}
+/* ------------ /header ------------ */
+
+/* ------------ main ------------ */
+.meta-info  {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #fff;
+}
+.meta-info__text {
+  font-size: 14px;
+  margin: 0 10px 10px 0;
+  color: #9d9d9d;
+}
+.meta-info__text::after {
+  margin-left: 5px;
+  content: "/";
+}
+.meta-info__text:last-child {
+  margin: 0 0 0 10px;
+}
+.meta-info__text:last-child::after {
+  display: none;
+}
+.meta-info__icon {
+  fill: #9d9d9d;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+}
+
+.main {
+  max-width: 590px;
+  margin: 0 auto;
+}
+.main__content {
+  padding-top: 30px;
+}
+.main__content-block {
+  margin-bottom: 45px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #fff;
+}
+.main__content-block:last-child {
+  margin: 0 0 20px;
+  padding-bottom: 85px;
+}
+.main__title {
+  font-family: "GilroySemi", Arial, sans-serif;
+  /* font-size: 42px; */
+  font-size: 30px;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 35px;
+}
+.main__image {
+  width: 100%;
+  margin-bottom: 35px;
+}
+.main__text {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  color: #3e2415;
+}
+.main__text:last-child {
+  margin-bottom: 0;
+}
+.main__text .bold {
+  font-family: "GilroySemi", Arial, sans-serif;
+}
+.main__text .link {
+  font-family: "GilroySemi", Arial, sans-serif;
+  color: #d1ad00;
+  transition: color 0.2s;
+}
+.main__text .link:hover {
+  text-decoration: underline;
+}
+.main__blockquote {
+  padding: 30px;
+  font-size: 18px;
+  line-height: 1.4;
+  background-color: #fff;
+  color: #8d8d8d;
+}
+.main__blockquote::after {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+.main__blockquote .bold {
+  font-family: "GilroySemi", Arial, sans-serif;
+  color: #3e2415;
+}
+
+.steps {
+  padding: 20px;
+  background-color: #fff;
+}
+.steps__title {
+  color: #3e2415;
+  font-family: "GilroySemi", Arial, sans-serif;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+.steps-list__item {
+  margin-bottom: 30px;
+  display: flex;
+}
+.steps-list__num {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #3e2415;
+  border-radius: 50%;
+  margin-right: 30px;
+  font-size: 34px;
+  font-family: "GilroyExtraBold", Arial, sans-serif;
+  color: #d1ad00;
+}
+.steps-list__text {
+  font-size: 18px;
+  line-height: 1.3;
+  color: #3e2415;
+  width: 70%;
+  max-width: 612px;
+}
+
+.main__btn  {
+  display: block;
+  margin: 50px auto 0;
+  max-width: 400px;
+  background-color: #3e2415;
+  line-height: 66px;
+  text-align: center;
+  color: #d1ad00;
+  font-family: "GilroyBold", Arial, sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border-bottom: 5px solid #170d08;
+  box-sizing: border-box;
+}
+.main__btn:hover, .main__btn:focus {
+  background-color: #170d08;
+  border: none;
+}
+.main__btn:active {
+  border: none;
+}
+/* ------------ /main ------------ */
+
+/* ------------ comments ------------ */
+.comments {
+  margin-bottom: 20px;
+}
+.comments__top {
+  height: 45px;
+  line-height: 45px;
+  background-color: #fff;
+  font-family: "GilroyBold", Arial, sans-serif;
+  font-size: 18px;
+  color: #3e2415;
+  padding-left: 10px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.comments-list__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #c1c1c1;
+}
+.comments-list__item:last-child {
+  border: none;
+}
+.comments-list__stars {
+  margin-bottom: 10px;
+}
+.comments-list__info {
+  max-width: 60%;
+  font-size: 16px;
+  color: #3e2415;
+}
+.comments-list__name {
+  font-family: "GilroyBold", Arial, sans-serif;
+  margin-bottom: 12px;
+}
+.comments-list__text {
+  line-height: 1.2;
+}
+.comments-list__photo {
+  width: 106px; height: 106px;
+  margin-right: 30px;
+  background: url('6059a63f64da9_v.png') -10px -10px;
+}
+.comments-list__photo_2 {
+  background-position: -136px -10px;
+}
+.comments-list__photo_3 {
+  background-position: -10px -136px;
+}
+.comments-list__photo_4 {
+  background-position: -136px -136px;
+}
+.comments-list__photo_5 {
+  background-position: -262px -10px;
+}
+.comments-list__photo_6 {
+  background-position: -262px -136px;
+}
+
+.comments__btn {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  background-color: #3d66cb;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.comments__btn:hover {
+  opacity: 0.9;
+}
+/* ------------ /comments ------------ */
+
+
+/* ------------ sidebar ------------ */
+.sidebar {
+  display: none;
+  width: 320px;
+  padding-top: 24px;
+}
+
+.sidebar-item {
+  position: relative;
+  padding: 24px 16px 26px;
+}
+.sidebar-item::before {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  width: calc(100% - 32px);
+  height: 1px;
+  background-color: #e7e7e7;
+  content: '';
+}
+.sidebar-item_active {
+  padding-top: 16px;
+  background-color: #fff;
+}
+.sidebar-item_active:before, .sidebar-item:nth-child(2):before {
+  display: none;
+}
+
+.sidebar-item__image-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+.sidebar-item__image-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 38px;
+  text-align: center;
+  font-family: "GilroyBold", Arial, sans-serif;
+  color: #fff;
+  font-size: 18px;
+  background: rgba(187, 157, 11, 0.5);
+}
+.sidebar-item__text_big {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #3e2415;
+  margin-bottom: 14px;
+}
+.sidebar-item__text_small {
+  font-size: 14px;
+  color: #9d9d9d;
+}
+
+.sidebar-bottom {
+  padding: 38px 28px 35px;
+  background-color: #fff;
+}
+.sidebar-bottom__title {
+  font-family: "GilroyBold", Arial, sans-serif;
+  font-size: 18px;
+  color: #3e2415;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.sidebar-bottom__btn {
+  display: block;
+  background-color: #d1ad00;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-family: "GilroyBold", Arial, sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border-bottom: 3px solid #89680a;
+  box-sizing: border-box;
+}
+/* ------------ /sidebar ------------ */
+
+@media screen and (min-width: 408px) {
+  .meta-info__text {
+    margin-bottom: 0;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  /* ------------ header ------------ */
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .logo  {
+    margin-bottom: 0;
+  }
+  /* ------------ /header ------------ */
+
+  /* ------------ steps ------------ */
+  .steps {
+    padding: 38px 40px;
+  }
+  .steps__title {
+    font-size: 40px;
+    padding-left: 104px;
+  }
+  .steps-list__item {
+    margin-bottom: 25px;
+    align-items: center;
+  }
+  .steps-list__item:last-child {
+    align-items: flex-start;
+  }
+  .steps-list__num {
+    width: 77px;
+    height: 77px;
+    line-height: 77px;
+  }
+  .steps-list__text {
+    width: auto;
+  }
+  /* ------------ /steps ------------ */
+}
+
+
+
+@media screen and (min-width: 960px) {
+  .main {
+    margin: 0;
+    max-width: 65%;
+  }
+  .sidebar {
+    display: block;
+  }
+
+  /* ------------ header ------------ */
+  .header__container {
+    justify-content: space-between;
+  }
+  .logo {
+    max-width: 200px;
+    margin-bottom: 0;
+  }
+
+  .nav {
+    width: 640px;
+  }
+
+  .nav-list {
+    justify-content: flex-start;
+  }
+
+  .nav-list__item {
+    width: auto;
+    margin: 0 52px 0 0;
+  }
+  .nav-list__item:last-child {
+    margin: 0;
+  }
+  /* ------------ /header ------------ */
+
+}
+
+
+@media screen and (min-width: 1170px) {
+  /* ------------ main ------------ */
+  .main {
+    max-width: 800px;
+  }
+  .main__title {
+    font-size: 42px;
+    text-align: left;
+  }
+  /* ------------ /main ------------ */
+
+  .logo {
+    max-width: none;
+    margin-bottom: 0;
+  }
+  .nav-list__link {
+    font-size: 15px;
+  }
+
+  /* ------------ comments ------------ */
+  .comments-list__item {
+    padding: 30px 010px;
+  }
+  .comments-list__stars {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    margin-bottom: 0;
+  }
+  .comments-list__info {
+    max-width: 640px;
+  }
+  .comments-list__text {
+    line-height: 1.8;
+  }
+  /* ------------ /comments ------------ */
+}

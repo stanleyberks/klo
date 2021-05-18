@@ -1,0 +1,25 @@
+.slogan_mobile{
+    display: none;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: left;
+    padding: 5px 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.slogan_mobile span {
+    color: #14d000;
+}
+
+@media (max-width: 940px) {
+    #header .header_content .header_slogan .header_slogan_inner {
+        display:none;
+    }
+    .slogan_mobile {
+        display:block;
+    }
+}

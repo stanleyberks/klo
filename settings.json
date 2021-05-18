@@ -1,0 +1,203 @@
+{
+    "white": {
+        "action": "folder",
+        "folder": {
+            "name": "biba"
+        },
+        "redirect": {
+            "url": "https://ya.ru",
+            "type": 303
+        },
+        "curl": {
+            "url": "https://yandex.ru"
+        },
+        "error": {
+            "code": 404
+        },
+        "domainfilter": {
+            "use": false,
+            "domains": [
+                {
+                    "name": "keto.awlah.com",
+                    "action": "curl:https://ya.ru"
+                },
+                {
+                    "name": "lalala.xxx.com",
+                    "action": "site:white"
+                },
+                {
+                    "name": "lamama.xxx.com",
+                    "action": "site:white"
+                }
+            ]
+        },
+        "jschecks": {
+            "enabled": false,
+            "events": [
+                "mousemove",
+                "keydown",
+                "scroll",
+                "wheel",
+                "devicemotion",
+                "deviceorientation"
+            ],
+            "timeout": 10000,
+            "obfuscate": true
+        }
+    },
+    "black": {
+        "prelanding": {
+            "action": "none",
+            "folders": [
+                "story"
+            ],
+            "redirect": {
+                "urls": [
+                    "https://ya.ru",
+                    "https://google.com"
+                ],
+                "type": 302
+            }
+        },
+        "landing": {
+            "action": "redirect",
+            "folder": {
+                "names": [
+                    "lrl"
+                ],
+                "conversions": {
+                    "script": "api.php",
+                    "logonbuttonclick": false
+                },
+                "customthankyoupage": {
+                    "use": false,
+                    "language": "RU"
+                }
+            },
+            "redirect": {
+                "urls": [
+                    "https://easy-dream.club/rsvy6GHB"
+                ],
+                "type": 307
+            }
+        },
+        "jsconnect": "redirect"
+    },
+    "pixels": {
+        "ya": {
+            "id": ""
+        },
+        "gtm": {
+            "id": ""
+        },
+        "fb": {
+            "subname": "px",
+            "pageview": true,
+            "viewcontent": {
+                "use": true,
+                "time": 30,
+                "percent": 75
+            },
+            "conversion": {
+                "event": "CompleteRegistration",
+                "fireonbutton": true
+            },
+            "cloak": true
+        }
+    },
+    "tds": {
+        "mode": "on",
+        "saveuserflow": true,
+        "filters": {
+            "allowed": {
+                "countries": [
+                    "DE",
+                    "AT",
+                    "CH"
+                ],
+                "os": [
+                    "Android",
+                    "iOS",
+                    "Windows",
+                    "OS X"
+                ],
+                "inurl": [
+                    ""
+                ]
+            },
+            "blocked": {
+                "ips": {
+                    "filename": "blackbase.txt",
+                    "cidrformat": true
+                },
+                "tokens": [
+                    ""
+                ],
+                "useragents": [
+                    "facebook",
+                    "Facebot",
+                    "curl",
+                    "gce-spider",
+                    "yandex.com/bots"
+                ],
+                "isps": [
+                    "microsoft",
+                    "facebook",
+                    "google",
+                    "yandex",
+                    "amazon",
+                    "azure",
+                    "digitalocean"
+                ],
+                "withoutreferer": false,
+                "vpntor": false
+            }
+        }
+    },
+    "scripts": {
+        "back": {
+            "action": "off",
+            "value": "https://ya.ru"
+        },
+        "disabletextcopy": true,
+        "prelandingreplace": {
+            "use": false,
+            "url": "https://ya.ru"
+        },
+        "phonemask": {
+            "use": false,
+            "mask": "+421 999 999 999"
+        },
+        "comebacker": false,
+        "callbacker": false,
+        "addedtocart": false
+    },
+    "subids": [
+        {
+            "name": "subid",
+            "rewrite": "sub_id"
+        },
+        {
+            "name": "prelanding",
+            "rewrite": "utm_source"
+        },
+        {
+            "name": "cn",
+            "rewrite": "utm_campaign"
+        },
+        {
+            "name": "an",
+            "rewrite": "utm_content"
+        }
+    ],
+    "statistics": {
+        "password": 61296,
+        "creativesubname": "an",
+        "postback": {
+            "lead": "Lead",
+            "purchase": "Purchase",
+            "reject": "Reject",
+            "trash": "Trash"
+        }
+    }
+}
